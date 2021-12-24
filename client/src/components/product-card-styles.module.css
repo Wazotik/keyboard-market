@@ -1,0 +1,23 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+.card {
+	text-align: center;
+	border: solid 2px black;
+	border-radius: 1.5rem;
+	padding: 2rem;
+	font-family: 'Poppins', sans-serif;
+	width: 200px;
+	margin-top: 1.5rem;
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
+
+.card > .imgContainer {
+}
+
+.price {
+	font-weight: bold;
+
+}
+
+

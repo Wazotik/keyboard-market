@@ -13,6 +13,7 @@ app.get("/", (req, res) => {
 app.get("/scraped-product-info", async (req, res) => {
 	console.log("requesting product info...");
 	const productInfo = await dataScraper.scrapeProducts();
+	console.log(productInfo);
 	res.send(productInfo);
 });
 
