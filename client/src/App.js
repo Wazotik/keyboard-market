@@ -63,6 +63,7 @@ function App() {
 			else {
 				return 0;
 			}
+			
 		});
 
 		setProductElemList(
