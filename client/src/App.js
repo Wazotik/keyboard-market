@@ -8,9 +8,11 @@ function App() {
 	const [productElemList, setProductElemList] = useState([]);
 	const [productInfo, setProductInfo] = useState([]);
 
+	// const [productsInCart, setProductsInCart] = useState([]);
+
 	const updateProductInfo = async () => {
 		const res = await axios.get("/scraped-product-info");
-		const info = res.data
+		const info = res.data;
 		setProductInfo(res.data);
 
 		setProductElemList(
@@ -30,11 +32,11 @@ function App() {
 		const sortedProducts = productInfo.sort((a, b) => {
 			if (Number(a.price.substring(1) > Number(b.price.substring(1)))) {
 				return -1;
-			}
-			else if (Number(a.price.substring(1) < Number(b.price.substring(1)))) {
+			} else if (
+				Number(a.price.substring(1) < Number(b.price.substring(1)))
+			) {
 				return 1;
-			}
-			else {
+			} else {
 				return 0;
 			}
 		});
@@ -56,14 +58,13 @@ function App() {
 		const sortedProducts = productInfo.sort((a, b) => {
 			if (Number(a.price.substring(1) < Number(b.price.substring(1)))) {
 				return -1;
-			}
-			else if (Number(a.price.substring(1) > Number(b.price.substring(1)))) {
+			} else if (
+				Number(a.price.substring(1) > Number(b.price.substring(1)))
+			) {
 				return 1;
-			}
-			else {
+			} else {
 				return 0;
 			}
-			
 		});
 
 		setProductElemList(

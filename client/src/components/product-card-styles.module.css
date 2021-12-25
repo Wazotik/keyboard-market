@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 .card {
 	text-align: center;
 	border: solid 2px black;
@@ -12,12 +13,19 @@
 	margin-right: 2rem;
 }
 
-.card > .imgContainer {
-}
 
 .price {
 	font-weight: bold;
+}
 
+.fade-in {
+  opacity: 0;
+  transition: opacity 400ms;
+  color: red;
 }
 
 
+.fade-out {
+  opacity: 1;
+  transition: opacity 400ms;
+}
