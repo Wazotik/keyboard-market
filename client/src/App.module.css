@@ -7,35 +7,6 @@ body {
 	animation: fade-in 1s ease;
 }
 
-.title {
-	display: grid;
-	place-items: center;
-}
-
-.title > h1 {
-	font-size: 54px;
-	font-family: 'Poppins',sans-serif;
-	font-weight: bold;
-}
-
-.buttonsContainer {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-	align-items: center;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-}
-
-.productList {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-direction: row;
-	flex-wrap: wrap;
-	animation: fade-in 2s ease;
-}
-
 @keyframes fade-in {
 	0% {
 		opacity: 0;
@@ -44,4 +15,3 @@ body {
 		opacity: 1;
 	}
 } 
-
