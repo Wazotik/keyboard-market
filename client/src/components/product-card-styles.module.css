@@ -1,31 +1,51 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 .card {
 	text-align: center;
-	border: solid 2px black;
 	border-radius: 1.5rem;
 	padding: 2rem;
-	font-family: 'Poppins', sans-serif;
-	width: 200px;
-	margin-top: 1.5rem;
-	margin-left: 2rem;
-	margin-right: 2rem;
+	font-family: "Poppins", sans-serif;
+	width: 15rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	transition: border-color 0.3s ease-out;
+	border: solid 3px transparent;
 }
 
+.name {
+	margin-top: 1rem;
+}
 
 .price {
+	margin-top: 1rem;
 	font-weight: bold;
+	font-size: 1.2rem;
 }
 
-.fade-in {
-  opacity: 0;
-  transition: opacity 400ms;
-  color: red;
+.addButton {
+	width: 10rem;
+	font-family: "Poppins";
+	height: 2rem;
+	transition: opacity 0.1s ease-out, transform 0.3s ease-out;
+	cursor: pointer;
+	font-size: 1rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
 }
 
-
-.fade-out {
-  opacity: 1;
-  transition: opacity 400ms;
+::selection {
+	background-color: lightgray;
 }
+
+/* .hide {
+	display: none;
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+} */
