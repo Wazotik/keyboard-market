@@ -1,8 +1,8 @@
-const puppeteer = require("puppeteer");
+import puppeteer from "puppeteer";
 const url =
 	"https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=1&show=100";
 
-const scrapeProducts = async () => {
+export const scrapeProducts = async () => {
 	console.log("start");
 	const browser = await puppeteer.launch({
 		headless: true,
@@ -39,7 +39,6 @@ const scrapeProducts = async () => {
 	});
 
 	await browser.close();
+	console.log(productObjArr);
 	return productObjArr;
 };
-
-module.exports = { scrapeProducts };

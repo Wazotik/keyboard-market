@@ -90,9 +90,9 @@ const Keyboards = () => {
 
 	return (
 		<div>
-			<div className={styles.title}>
+			{/* <div className={styles.title}>
 				<h1>Discover new keyboards!</h1>
-			</div>
+			</div> */}
 
 			<div className={styles.buttonsContainer}>
 				<div>

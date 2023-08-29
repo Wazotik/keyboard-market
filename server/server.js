@@ -1,8 +1,12 @@
-const express = require("express");
+import express from "express";
+import cors from "cors";
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const dataScraper = require("./data-scraper");
+import { scrapeProducts } from "./data-scraper.js";
+import { getAllKeyboardInfo, getKeyboardInfo, insertKeyboardInfo } from "./database.js";
+import * as databaseUpdater from "./database-updater.js" ;
 
 app.use(express.json());
 
@@ -10,12 +14,17 @@ app.get("/", (req, res) => {
 	res.send("Server is up!");
 });
 
-app.get("/scraped-product-info", async (req, res) => {
-	console.log("requesting product info...");
-	const productInfo = await dataScraper.scrapeProducts();
-	console.log(productInfo);
-	res.send(productInfo);
+app.get("/all-keyboards-info", async (req, res) => {
+	const allKeyboardInfo = await getAllKeyboardInfo();
+	console.log(allKeyboardInfo);
+	res.send(allKeyboardInfo);
 });
+
+app.get("/single-keyboard-info/:id", async (res, req) => {
+	const id = req.params.id;
+	const keyboardInfo = await getKeyboardInfo(id)
+	res.send(keyboardInfo);
+})
 
 app.listen(PORT, () => {
 	console.log(`Listening on port ${PORT}`);
