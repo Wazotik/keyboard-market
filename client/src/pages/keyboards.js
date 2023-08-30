@@ -14,7 +14,7 @@ const Keyboards = () => {
 	// const [productsInCart, setProductsInCart] = useState([]);
 
 	const updateProductInfo = async () => {
-		const res = await axios.get("/scraped-product-info");
+		const res = await axios.get("/all-keyboards-info");
 		setInfoLoaded(true);
 		const info = res.data;
 		setProductInfo(res.data);
