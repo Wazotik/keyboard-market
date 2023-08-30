@@ -2,8 +2,8 @@ import * as dataScraper from"./data-scraper.js";
 import { updateKeyboards } from "./database.js";
 import cron from "node-cron";
 
-// Update database with new scraped keyboard info every 5 minutes hour
-cron.schedule("*/5 * * * *", async () => {
+// Update database with new scraped keyboard every 2 days at 11pm
+cron.schedule("0 23 */2 * *", async () => {
 	try {
 		console.log("updating keyboard info in DB");
 		const scrapedKeyboardData = await dataScraper.scrapeProducts();
