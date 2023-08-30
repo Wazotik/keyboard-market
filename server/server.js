@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 import { scrapeProducts } from "./data-scraper.js";
-import { getAllKeyboardInfo, getKeyboardInfo, insertKeyboardInfo } from "./database.js";
+import { getAllKeyboardInfo, getKeyboardInfo, updateKeyboards } from "./database.js";
 
 import * as databaseUpdater from "./database-updater.js" ;
 

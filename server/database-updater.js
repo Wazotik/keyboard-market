@@ -1,12 +1,13 @@
 import * as dataScraper from"./data-scraper.js";
-import { insertKeyboards } from "./database.js";
+import { updateKeyboards } from "./database.js";
 import cron from "node-cron";
 
-// Update database with new scraped keyboard info every Sunday
-cron.schedule("0 0 * * 0", async () => {
+// Update database with new scraped keyboard info every half hour
+cron.schedule("*/5 * * * *", async () => {
 	try {
+		console.log("updating keyboard info in DB");
 		const scrapedKeyboardData = await dataScraper.scrapeProducts();
-		await insertKeyboards(scrapedKeyboardData);
+		await updateKeyboards(scrapedKeyboardData);
 		console.log("Data scraped and saved to DB successfully :)");
 	} catch (error) {
 		console.error("Error with Database updater", error);

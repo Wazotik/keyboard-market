@@ -2,7 +2,7 @@ import mysql from "mysql2";
 import cron from "node-cron";
 
 import dotenv from "dotenv";
-dotenv.config()
+dotenv.config();
 
 const pool = mysql.createPool({
 	host: process.env.MYSQL_HOST,
@@ -26,7 +26,8 @@ export const insertKeyboardInfo = async (name, img_url, price) => {
 	await pool.query(`INSERT INTO ${process.env.MYSQL_DATABASE_TABLE} (name, img_url, price) VALUES (?, ?, ?)`, [name, img_url, price]);
 };
 
-export const insertKeyboards = async (keyboardObjArr) => {
+export const updateKeyboards = async (keyboardObjArr) => {
+	await pool.query(`DELETE FROM ${process.env.MYSQL_DATABASE_TABLE}`);
 	for (let keyboardObj of keyboardObjArr) {
 		await pool.query(`INSERT INTO ${process.env.MYSQL_DATABASE_TABLE} (name, img_url, price) VALUES (?, ?, ?)`, [keyboardObj.name, keyboardObj.img, keyboardObj.price]);
 	}
