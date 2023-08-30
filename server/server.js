@@ -16,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/all-keyboards-info", async (req, res) => {
+	console.log('incoming request for all keyboard info');
 	const allKeyboardInfo = await getAllKeyboardInfo();
 	console.log(allKeyboardInfo);
 	res.send(allKeyboardInfo);
