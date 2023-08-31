@@ -24,7 +24,7 @@ const Keyboards = () => {
 				return (
 					<ProductCard
 						name={product.name}
-						imgUrl={product.img}
+						imgUrl={product.img_url}
 						price={product.price}
 					></ProductCard>
 				);

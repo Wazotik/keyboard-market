@@ -23,7 +23,7 @@ const ProductCard = ({ name, imgUrl, price }) => {
 			<button style={{
 				opacity: showButton ? "1" : "0",
 				transform: showButton ? "translateY(1rem)" : "translateY(0rem)",
-			}} className={styles.addButton}>Add To Cart</button>
+			}} className={styles.addButton}>Add to Favourites</button>
 		</div>
 	);
 };
