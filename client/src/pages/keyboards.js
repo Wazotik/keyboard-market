@@ -3,12 +3,13 @@ import styles from "./keyboards-styles.module.css";
 import { useState, useEffect } from "react";
 import ProductCard from "../components/product-card";
 import Navbar from "../components/navbar.js";
+import DataControlCenter from '../components/data-control-center';
 
 const axios = require("axios");
 
 const Keyboards = () => {
 	const [productElemList, setProductElemList] = useState([]);
-	const [productInfo, setProductInfo] = useState([]);
+	const [productData, setProductData] = useState([]);
 	const [infoLoaded, setInfoLoaded] = useState(false);
 
 	// const [productsInCart, setProductsInCart] = useState([]);
@@ -16,11 +17,12 @@ const Keyboards = () => {
 	const updateProductInfo = async () => {
 		const res = await axios.get("/all-keyboards-info");
 		setInfoLoaded(true);
-		const info = res.data;
-		setProductInfo(res.data);
+		const keyboardsData = res.data;
+		console.log(keyboardsData);
+		setProductData(keyboardsData);
 
 		setProductElemList(
-			info.map((product) => {
+			keyboardsData.map((product) => {
 				return (
 					<ProductCard
 						name={product.name}
@@ -31,9 +33,12 @@ const Keyboards = () => {
 			})
 		);
 	};
+	useEffect(() => {
+		updateProductInfo();
+	}, []);
 
 	const sortPriceHigh = () => {
-		const sortedProducts = productInfo.sort((a, b) => {
+		const sortedProducts = productData.sort((a, b) => {
 			if (Number(a.price.substring(1) > Number(b.price.substring(1)))) {
 				return -1;
 			} else if (
@@ -50,7 +55,7 @@ const Keyboards = () => {
 				return (
 					<ProductCard
 						name={product.name}
-						imgUrl={product.img}
+						imgUrl={product.img_url}
 						price={product.price}
 					></ProductCard>
 				);
@@ -59,7 +64,7 @@ const Keyboards = () => {
 	};
 
 	const sortPriceLow = () => {
-		const sortedProducts = productInfo.sort((a, b) => {
+		const sortedProducts = productData.sort((a, b) => {
 			if (Number(a.price.substring(1) < Number(b.price.substring(1)))) {
 				return -1;
 			} else if (
@@ -76,7 +81,7 @@ const Keyboards = () => {
 				return (
 					<ProductCard
 						name={product.name}
-						imgUrl={product.img}
+						imgUrl={product.img_url}
 						price={product.price}
 					></ProductCard>
 				);
@@ -84,32 +89,20 @@ const Keyboards = () => {
 		);
 	};
 
-	useEffect(() => {
-		updateProductInfo();
-	}, []);
+
 
 	return (
 		<div>
 			{/* <div className={styles.title}>
 				<h1>Discover new keyboards!</h1>
 			</div> */}
-
-			<div className={styles.buttonsContainer}>
-				<div>
-					<button onClick={sortPriceHigh}>
-						Sort by highest price
-					</button>
-				</div>
-				<div>
-					<button onClick={sortPriceLow}>Sort by lowest price</button>
-				</div>
-			</div>
+			<DataControlCenter keyboardData={productData} setProductElemList={setProductElemList} sortHighFunction={sortPriceHigh} sortLowFunction={sortPriceLow} />
 
 			<div
 				style={{
 					display: infoLoaded ? "none" : "grid",
 					placeContent: "center",
-					height: "80vh",
+					height: "70vh",
 					textAlign: "center",
 					fontFamily: "Poppins",
 					margin: "0",
