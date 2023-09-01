@@ -85,7 +85,7 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 
 				<div className={`${styles.inputContainer} ${styles.inputContainerBigger}`}>
 					<label htmlFor="searchInput">Find a keyboard:</label>
-					<input id='searchInput'  type="text" placeholder="Enter keywords (Ducky, Black)..." onChange={saveSearchText} />
+					<input id='searchInput'  type="text" placeholder="Enter keywords (Ducky, Black, 60%)..." onChange={saveSearchText} />
 				</div>
 				<div className={styles.inputContainer}>
 					<label htmlFor="sortSelection">Sort by:</label>
@@ -96,16 +96,18 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 				</div>
 
 				<div className={styles.inputContainer}>
-					<label htmlFor="minPriceInput">Enter the minimum price:</label>
-					<input id='minPriceInput' type="number" placeholder="Min Price" onChange={saveMinPrice} />
+					<label htmlFor="minPriceInput">Min price:</label>
+					<input id='minPriceInput' type="number" placeholder="" onChange={saveMinPrice} />
 				</div>
 
 				<div className={styles.inputContainer}>
-					<label htmlFor="maxPriceInput">Enter the maximum price:</label>
-					<input id='maxPriceInput' type="number" placeholder="Max Price" onChange={saveMaxPrice} />
+					<label htmlFor="maxPriceInput">Max price:</label>
+					<input id='maxPriceInput' type="number" placeholder="" onChange={saveMaxPrice} />
 				</div>
 
-				<button className={styles.inputContainer} type="button">Reset</button>
+				<div className={styles.restButtonContainer}>
+					<button type="button">Reset</button>
+				</div>
 			</div>
 		</div>
 	);
