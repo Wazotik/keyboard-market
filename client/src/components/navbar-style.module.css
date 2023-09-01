@@ -3,7 +3,7 @@
 	position: sticky;
 	background-color: lightgray;
 	top: 0;
-	height: 80px;
+	height: 60px;
 	width: 100%;
 	display: flex;
 	justify-self: start;
@@ -13,7 +13,7 @@
 
 .sidebarMenuIcon {
 	margin-left: 2rem;
-	color: black;
+	color: #2b2d42;
 	cursor: pointer;
 }
 

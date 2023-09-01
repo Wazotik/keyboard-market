@@ -37,58 +37,6 @@ const Keyboards = () => {
 		updateProductInfo();
 	}, []);
 
-	const sortPriceHigh = () => {
-		const sortedProducts = productData.sort((a, b) => {
-			if (Number(a.price.substring(1) > Number(b.price.substring(1)))) {
-				return -1;
-			} else if (
-				Number(a.price.substring(1) < Number(b.price.substring(1)))
-			) {
-				return 1;
-			} else {
-				return 0;
-			}
-		});
-
-		setProductElemList(
-			sortedProducts.map((product) => {
-				return (
-					<ProductCard
-						name={product.name}
-						imgUrl={product.img_url}
-						price={product.price}
-					></ProductCard>
-				);
-			})
-		);
-	};
-
-	const sortPriceLow = () => {
-		const sortedProducts = productData.sort((a, b) => {
-			if (Number(a.price.substring(1) < Number(b.price.substring(1)))) {
-				return -1;
-			} else if (
-				Number(a.price.substring(1) > Number(b.price.substring(1)))
-			) {
-				return 1;
-			} else {
-				return 0;
-			}
-		});
-
-		setProductElemList(
-			sortedProducts.map((product) => {
-				return (
-					<ProductCard
-						name={product.name}
-						imgUrl={product.img_url}
-						price={product.price}
-					></ProductCard>
-				);
-			})
-		);
-	};
-
 
 
 	return (
@@ -96,7 +44,7 @@ const Keyboards = () => {
 			{/* <div className={styles.title}>
 				<h1>Discover new keyboards!</h1>
 			</div> */}
-			<DataControlCenter keyboardData={productData} setProductElemList={setProductElemList} sortHighFunction={sortPriceHigh} sortLowFunction={sortPriceLow} />
+			<DataControlCenter keyboardData={productData} setProductElemList={setProductElemList} />
 
 			<div
 				style={{
@@ -106,6 +54,7 @@ const Keyboards = () => {
 					textAlign: "center",
 					fontFamily: "Poppins",
 					margin: "0",
+					backgroundColor: "#edf2f4",
 				}}
 			>
 				<h2>loading keyboard data...</h2>

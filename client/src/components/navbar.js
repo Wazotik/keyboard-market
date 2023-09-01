@@ -26,8 +26,8 @@ const Navbar = () => {
 						}}/>
 					</li>
 					<div className={styles.pageLinks}>
-						<Link to="/">Keyboard Catalog</Link>
-						<Link to="/my-keyboards">Your keyboards</Link>
+						<Link to="/">Catalog</Link>
+						<Link to="/my-keyboards">Favourites</Link>
 					</div>
 				</ul>
 			</nav>

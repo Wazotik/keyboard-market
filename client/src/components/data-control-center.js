@@ -1,23 +1,114 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './data-control-center-style.module.css';
+import MultiRangeSlider from "multi-range-slider-react";
+import ProductCard from './product-card';
+import { sortPriceHigh, sortPriceLow } from '../scripts/sortFunctions';
 
 
 const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, sortLowFunction}) => {
 
+	const [searchText, setSearchText] = useState("");
+	const [minPrice, setMinPrice] = useState(undefined);
+	const [maxPrice, setMaxPrice] = useState(undefined);
+	const [sortFunction, setSortFunction] = useState(undefined);
+	// const [filteredKeyboardElems, setFilteredKeyboardElems] = useState([]);
+
+	const saveSearchText = (event) => {
+		setSearchText(event.target.value);
+	}
+
+	const saveMinPrice = (event) => {
+		setMinPrice(event.target.value);
+	}
+
+	const saveMaxPrice = (event) => {
+		setMaxPrice(event.target.value);
+	}
+
+	const saveSortFunction = (event) => {
+		setSortFunction(event.target.value);
+	}
+
+	const handleSort = (data) => {
+		const selectedSort = sortFunction;
+		let sortedData = []
+		if (selectedSort === "priceAsc") {
+			sortedData = sortPriceLow(data)
+		}
+		else if (selectedSort === "priceDesc") {
+			sortedData = sortPriceHigh(data);
+		}
+		else {
+			alert("INCOREECT SORT SELECTION");
+		}
+		return sortedData;
+	};
+
+	const filterKeyboardData = () => {
+		let filteredData = keyboardData;
+		if (searchText) {
+			filteredData = filteredData.filter((keyboard) => keyboard.name.toLowerCase().includes(searchText.toLowerCase()));
+		}
+
+		if (minPrice) {
+			filteredData = filteredData.filter((keyboard) => Number(keyboard.price.substring(1)) > minPrice);
+		}
+
+		if (maxPrice) {
+			filteredData = filteredData.filter((keyboard) => Number(keyboard.price.substring(1)) < maxPrice);
+		}
+
+		if (sortFunction) {
+			filteredData = handleSort(filteredData);
+		}
+		console.log(filteredData);
+		setProductElemList(
+			filteredData.map((product) => {
+				return (
+					<ProductCard
+						name={product.name}
+						imgUrl={product.img_url}
+						price={product.price}
+					></ProductCard>
+				);
+			})
+		)
+	}
+
+	useEffect(() => {
+		filterKeyboardData();
+	}, [searchText, sortFunction, minPrice, maxPrice]);
+
 	return (
 		<div>
-			<div className={styles.buttonsContainer}>
-				<div>
-					<button onClick={sortHighFunction}>
-						Sort by highest price
-					</button>
+			<div className={styles.dataControlCenterContainer}>
+
+				<div className={`${styles.inputContainer} ${styles.inputContainerBigger}`}>
+					<label htmlFor="searchInput">Find a keyboard:</label>
+					<input id='searchInput'  type="text" placeholder="Enter keywords (Ducky, Black)..." onChange={saveSearchText} />
 				</div>
-				<div>
-					<button onClick={sortLowFunction}>Sort by lowest price</button>
+				<div className={styles.inputContainer}>
+					<label htmlFor="sortSelection">Sort by:</label>
+					<select name="" id="sortSelection" onChange={saveSortFunction} >
+						<option value="priceAsc">Price (asc)</option>
+						<option value="priceDesc">Price (desc)</option>
+					</select>
 				</div>
+
+				<div className={styles.inputContainer}>
+					<label htmlFor="minPriceInput">Enter the minimum price:</label>
+					<input id='minPriceInput' type="number" placeholder="Min Price" onChange={saveMinPrice} />
+				</div>
+
+				<div className={styles.inputContainer}>
+					<label htmlFor="maxPriceInput">Enter the maximum price:</label>
+					<input id='maxPriceInput' type="number" placeholder="Max Price" onChange={saveMaxPrice} />
+				</div>
+
+				<button className={styles.inputContainer} type="button">Reset</button>
 			</div>
 		</div>
-	)
+	);
 }
 ;
 export default DataControlCenter;

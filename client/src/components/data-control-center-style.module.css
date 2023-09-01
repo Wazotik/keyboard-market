@@ -1,9 +1,47 @@
 
-.buttonsContainer {
+.dataControlCenterContainer {
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
+	padding-top: 1.5em;
+	padding-bottom: 1.5rem;
+	padding-left: 5rem;
+	padding-right: 5rem;
+	background-color: #8d99ae;
+	font-family: "Poppins", sans-serif;
+}
+
+.dataControlCenterContainer ::placeholder {
+	font-family: "Poppins", sans-serif;
+}
+
+.inputContainer {
+	margin-left: 3rem;
+	margin-right: 3rem;
+	display: flex;
+	flex-direction: column;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+	color: #edf2f4;
+}
+
+.inputContainer label {
+	margin-left: 1px;
+}
+
+.inputContainer input, select {
+	padding: 0.6rem;
+}
+
+.inputContainer option {
+	margin-left: 1rem;
+	margin-right: 1rem;
+	padding: 0.6rem;
+}
+
+.inputContainerBigger {
+	flex: 2;
 }
