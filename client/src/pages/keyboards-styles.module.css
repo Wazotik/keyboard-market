@@ -18,6 +18,7 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	animation: fade-in 2s ease;
+	margin-top: 2rem;
 }
 
 @keyframes fade-in {

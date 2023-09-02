@@ -13,7 +13,7 @@ export const scrapeProducts = async () => {
 
 		let allPagesKeyboardObjs = [];
 
-		for (let i = 1; i <= 1; i++) {
+		for (let i = 1; i <= 12; i++) {
 			console.log(`Page: ${i}`);
 			let url = `https://mechanicalkeyboards.com/shop/index.php?pg=${i}&l=product_list&c=1&show=100`;
 			await page.goto(url, { waitUntil: "domcontentloaded" });
@@ -36,8 +36,8 @@ export const scrapeProducts = async () => {
 						img: `https://mechanicalkeyboards.com/shop/${product
 							.querySelector(".ebj_limit_img_height")
 							.getAttribute("src")}`,
-						price: product.querySelector(".sale").innerHTML,
-						productID: product.querySelector("input[type='hidden']").getAttribute("value"),
+						price: parseFloat((product.querySelector(".sale").innerText).substring(1)),
+						productID: parseInt(product.querySelector("input[type='hidden']").getAttribute("value"), 10),
 					};
 					productObjs.push(obj);
 					console.log("product info added");
@@ -95,7 +95,7 @@ export const scrapeProducts = async () => {
 					return -1;
 				}
 			})
-			productObj["starRating"] = starRating;
+			productObj["starRating"] = parseInt(starRating, 10);
 		}
 
 
@@ -106,5 +106,3 @@ export const scrapeProducts = async () => {
 		console.log(error);
 	}
 };
-
-scrapeProducts();

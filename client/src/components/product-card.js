@@ -18,7 +18,7 @@ const ProductCard = ({ name, imgUrl, price }) => {
 				<img src={imgUrl} alt="" />
 			</div>
 			<div className={styles.name}>{name}</div>
-			<div className={styles.price}>{price}</div>
+			<div className={styles.price}>${price}</div>
 
 			{/* <button style={{
 				opacity: showButton ? "1" : "0",

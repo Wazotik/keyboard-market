@@ -4,6 +4,7 @@ import cron from "node-cron";
 
 // Update database with new scraped keyboard every 2 days at 11pm
 // cron.schedule("0 23 */2 * *", async () => {
+
 cron.schedule("0 1 * * *", async () => {
 	try {
 		console.log("updating keyboard info in DB");
