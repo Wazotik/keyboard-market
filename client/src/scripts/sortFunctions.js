@@ -1,10 +1,10 @@
 
 export const sortPriceHigh = (data) => {
 	const sortedData = Array.from(data).sort((a, b) => {
-		if (Number(a.price.substring(1) > Number(b.price.substring(1)))) {
+		if (parseFloat(a.price) > parseFloat(b.price)) {
 			return -1;
 		} else if (
-			Number(a.price.substring(1) < Number(b.price.substring(1)))
+			parseFloat(a.price) < parseFloat(b.price) 
 		) {
 			return 1;
 		} else {
@@ -16,10 +16,10 @@ export const sortPriceHigh = (data) => {
 
 export const sortPriceLow = (data) => {
 	const sortedData = Array.from(data).sort((a, b) => {
-		if (Number(a.price.substring(1) < Number(b.price.substring(1)))) {
+		if (parseFloat(a.price) < parseFloat(b.price)) {
 			return -1;
 		} else if (
-			Number(a.price.substring(1) > Number(b.price.substring(1)))
+			parseFloat(a.price) > parseFloat(b.price) 
 		) {
 			return 1;
 		} else {
