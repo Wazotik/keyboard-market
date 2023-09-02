@@ -8,25 +8,16 @@ import { sortPriceHigh, sortPriceLow } from '../scripts/sortFunctions';
 const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, sortLowFunction}) => {
 
 	const [searchText, setSearchText] = useState("");
-	const [minPrice, setMinPrice] = useState(undefined);
-	const [maxPrice, setMaxPrice] = useState(undefined);
-	const [sortFunction, setSortFunction] = useState(undefined);
+	const [minPrice, setMinPrice] = useState("");
+	const [maxPrice, setMaxPrice] = useState("");
+	const [sortFunction, setSortFunction] = useState("");
 	// const [filteredKeyboardElems, setFilteredKeyboardElems] = useState([]);
 
-	const saveSearchText = (event) => {
-		setSearchText(event.target.value);
-	}
-
-	const saveMinPrice = (event) => {
-		setMinPrice(event.target.value);
-	}
-
-	const saveMaxPrice = (event) => {
-		setMaxPrice(event.target.value);
-	}
-
-	const saveSortFunction = (event) => {
-		setSortFunction(event.target.value);
+	const clearInputFields = () => {
+		setSearchText("");
+		setMinPrice("");
+		setMaxPrice("");
+		setSortFunction("");
 	}
 
 	const handleSort = (data) => {
@@ -85,28 +76,30 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 
 				<div className={`${styles.inputContainer} ${styles.inputContainerBigger}`}>
 					<label htmlFor="searchInput">Find a keyboard:</label>
-					<input id='searchInput'  type="text" placeholder="Enter keywords (Ducky, Black, 60%)..." onChange={saveSearchText} />
+					<input id='searchInput' value={searchText} type="text" placeholder="Enter keywords (Ducky, Black, 60%)..." onChange={(e) => setSearchText(e.target.value)} />
 				</div>
+
+				<div className={styles.inputContainer}>
+					<label htmlFor="minPriceInput">Min price:</label>
+					<input value={minPrice} id='minPriceInput' type="number" placeholder="" onChange={(e) => setMinPrice(e.target.value)} />
+				</div>
+
+				<div className={styles.inputContainer}>
+					<label htmlFor="maxPriceInput">Max price:</label>
+					<input value={maxPrice} id='maxPriceInput' type="number" placeholder="" onChange={(e) => setMaxPrice(e.target.value)} />
+				</div>
+				
 				<div className={styles.inputContainer}>
 					<label htmlFor="sortSelection">Sort by:</label>
-					<select name="" id="sortSelection" onChange={saveSortFunction} >
+					<select name="" value={sortFunction} id="sortSelection" onChange={(e) => setSortFunction(e.target.value)} >
+						<option value={""} disabled selected></option>
 						<option value="priceAsc">Price (asc)</option>
 						<option value="priceDesc">Price (desc)</option>
 					</select>
 				</div>
 
-				<div className={styles.inputContainer}>
-					<label htmlFor="minPriceInput">Min price:</label>
-					<input id='minPriceInput' type="number" placeholder="" onChange={saveMinPrice} />
-				</div>
-
-				<div className={styles.inputContainer}>
-					<label htmlFor="maxPriceInput">Max price:</label>
-					<input id='maxPriceInput' type="number" placeholder="" onChange={saveMaxPrice} />
-				</div>
-
-				<div className={styles.restButtonContainer}>
-					<button type="button">Reset</button>
+				<div className={styles.resetButtonContainer}>
+					<button type="button" onClick={clearInputFields}>Reset</button>
 				</div>
 			</div>
 		</div>

@@ -14,7 +14,7 @@
 	background-color: #8d99ae;
 }
 
-.datacontrolcentercontainer ::placeholder, option, input, select, label {
+.datacontrolcentercontainer ::placeholder, option, input, select, label, button {
 	font-family: "poppins", sans-serif;  
 }
 
@@ -50,4 +50,33 @@
 
 .inputContainerBigger {
 	flex: 2;
+}
+
+.resetButtonContainer {
+	margin-top: 1rem;
+	margin-left: 5rem;
+}
+
+.resetButtonContainer button {
+	background: #fff;
+	font-size: 1rem;
+	letter-spacing: 1px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	padding: 10px 40px;
+	transition-duration: .2s;
+	display: inline-block;
+	perspective: 1000px;
+	cursor: pointer;
+}
+
+.resetButtonContainer button:hover {
+	transform: scale(1.1);
+	backface-visibility: hidden;
+}
+
+.resetButtonContainer button:active {
+	transition-duration: .05s;
+	transform: scale(0.99);
 }
