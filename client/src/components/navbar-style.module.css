@@ -1,15 +1,44 @@
+@import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
 
 .navbar {
-	position: sticky;
-	background-color: lightgray;
+	background-color: #2b2d42;
 	top: 0;
 	height: 60px;
 	width: 100%;
 	display: flex;
-	justify-self: start;
+	justify-content: left;
 	align-items: center;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	padding-left: 3rem;
+	padding-right: 3rem;
 	/* z-index: 100; */
 }
+
+.logo {
+	text-align: left;
+	font-family: 'Lily Script One';
+	font-size: 40px;
+	letter-spacing: 3px;
+	font-weight: bold;
+	text-align: left;
+	color: lightgray;
+	-webkit-transition: 0.2s ease all;
+	-moz-transition: 0.2s ease all;
+	-ms-transition: 0.2s ease all;
+	-o-transition: 0.2s ease all;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	transition: 0.2s ease all;
+	cursor: default;
+}
+
+.logo:hover {
+	color: cornflowerblue;
+}
+
 
 .sidebarMenuIcon {
 	margin-left: 2rem;

@@ -13,12 +13,15 @@ const Navbar = () => {
 	return (
 		<div>
 			<div className={styles.navbar}>
-				<FaBars className={styles.sidebarMenuIcon} size={28} onClick={() => {
+				{/* <FaBars className={styles.sidebarMenuIcon} size={28} onClick={() => {
 					setShowSidebar(!showSidebar);
-				}}/>
+				}}/> */}
+				<h3 className={styles.logo}>
+					K Market
+				</h3>
 			</div>
 			
-			<nav className={showSidebar ? styles.navMenuActive : styles.navMenuHidden}>
+			{/* <nav className={showSidebar ? styles.navMenuActive : styles.navMenuHidden}>
 				<ul className={styles.items}>
 					<li>
 						<IoMdArrowBack className={styles.sidebarBackIcon} size={36} onClick={() => {
@@ -30,7 +33,7 @@ const Navbar = () => {
 						<Link to="/my-keyboards">Favourites</Link>
 					</div>
 				</ul>
-			</nav>
+			</nav> */}
 
 		</div>
 	);

@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
 
 .dataControlCenterContainer {
 	box-sizing: border-box;
@@ -7,18 +8,14 @@
 	align-items: center;
 	margin-bottom: 2rem;
 	padding-top: 1.5em;
-	padding-bottom: 1.5rem;
+	padding-bottom: 2rem;
 	padding-left: 5rem;
 	padding-right: 5rem;
 	background-color: #8d99ae;
 }
 
 .datacontrolcentercontainer ::placeholder, option, input, select, label {
-	font-family: "poppins", sans-serif; 
-}
-
-.datacontrolcentercontainer ::placeholder  {
-	
+	font-family: "poppins", sans-serif;  
 }
 
 .inputContainer {
@@ -27,7 +24,7 @@
 	display: flex;
 	flex-direction: column;
 	font-size: 1rem;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	color: #edf2f4;
 }
 
@@ -38,8 +35,8 @@
 .inputContainer input, select {
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
-	padding-left: 1rem;
-	padding-right: 1rem;
+	padding-left: 0.8rem;
+	padding-right: 0.8rem;
 	border-radius: 5px;
 	outline: none;
 	border: none;
