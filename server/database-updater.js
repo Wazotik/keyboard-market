@@ -1,5 +1,5 @@
-import * as dataScraper from"./data-scraper.js";
-import { updateKeyboards } from "./database.js";
+import * as dataScraper from "./data-scraper.js";
+import { updateKeyboards } from "./database-querying.js";
 import cron from "node-cron";
 
 // Update database with new scraped keyboard every 2 days at 11pm
@@ -18,6 +18,3 @@ cron.schedule("0 1 * * *", async () => {
 
 // cron.schedule("* * * * *", async () => {
 // });
-
-
-

@@ -5,9 +5,13 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 import { scrapeProducts } from "./data-scraper.js";
-import { getAllKeyboardInfo, getKeyboardInfo, updateKeyboards } from "./database.js";
+import {
+	getKeyboards,
+	getKeyboard,
+	updateKeyboards,
+} from "./database-querying.js";
 
-import * as databaseUpdater from "./database-updater.js" ;
+import * as databaseUpdater from "./database-updater.js";
 
 app.use(express.json());
 
@@ -16,8 +20,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/all-keyboards-info", async (req, res) => {
-	console.log('incoming request for all keyboard info');
-	const allKeyboardInfo = await getAllKeyboardInfo();
+	console.log("incoming request for all keyboard info");
+	const allKeyboardInfo = await getKeyboards();
 	console.log(allKeyboardInfo);
 	res.send(allKeyboardInfo);
 });
