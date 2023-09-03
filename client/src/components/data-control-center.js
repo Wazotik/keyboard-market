@@ -42,11 +42,11 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 		}
 
 		if (minPrice) {
-			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) > minPrice);
+			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) >= minPrice);
 		}
 
 		if (maxPrice) {
-			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) < maxPrice);
+			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) <= maxPrice);
 		}
 
 		if (sortFunction) {
