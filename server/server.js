@@ -11,7 +11,7 @@ import {
 	updateKeyboards,
 } from "./database-querying.js";
 
-import * as databaseUpdater from "./database-updater.js";
+// import * as databaseUpdater from "./database-updater.js";
 
 app.use(express.json());
 
