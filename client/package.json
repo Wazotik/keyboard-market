@@ -2,13 +2,13 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://keyboard-market-app-server-b625f0480c13.herokuapp.com/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.24.0",
     "multi-range-slider-react": "^2.0.3",
+    "netlify-plugin-redirect-env-placeholders": "^0.1.0",
     "react": "^17.0.2",
     "react-animated-css": "^1.2.1",
     "react-dom": "^17.0.2",
@@ -21,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "netlify": "netlify"
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "netlify-cli": "^16.2.0"
+  },
+  "proxy": "https://keyboard-market-app-server-b625f0480c13.herokuapp.com/"
 }

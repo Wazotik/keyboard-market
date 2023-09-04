@@ -15,7 +15,8 @@ const Keyboards = () => {
 	// const [productsInCart, setProductsInCart] = useState([]);
 
 	const updateProductInfo = async () => {
-		const res = await axios.get("/all-keyboards-info");
+		console.log("getting keyboard data");
+		const res = await axios.get("/api/all-keyboards-info");
 		setInfoLoaded(true);
 		const keyboardsData = res.data;
 		console.log(keyboardsData);

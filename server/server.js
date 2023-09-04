@@ -11,9 +11,15 @@ import {
 	updateKeyboards,
 } from "./database-querying.js";
 
+
+
 // import * as databaseUpdater from "./database-updater.js";
 
 app.use(express.json());
+app.use((req, res, next) => {
+	res.header("Access-Control-Allow-Origin", "*");
+	next();
+});
 
 app.get("/", (req, res) => {
 	res.send("Server is up!");

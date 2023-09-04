@@ -1,3 +1,9 @@
 node_modules
 server/.env
 server/schema.sql
+# Local Netlify folder
+.netlify
+/build
+client/public/_redirects
+server/.gitignore
+client/.gitignore
