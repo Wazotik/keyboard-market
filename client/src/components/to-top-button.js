@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
-import styles from "./to-top-button.module.css";
+import styles from "../styles/to-top-button-styles.module.css";
 
 const ToTopButton = () => {
 	const [showButton, setShowButton] = useState(false);

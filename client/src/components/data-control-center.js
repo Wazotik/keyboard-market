@@ -1,5 +1,5 @@
 import React, { useEffect, useState  } from 'react';
-import styles from './data-control-center-style.module.css';
+import styles from '../styles/data-control-center-styles.module.css';
 import ProductCard from './product-card';
 import { sortPriceHigh, sortPriceLow } from '../scripts/sortFunctions';
 
@@ -58,6 +58,7 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 			filteredData.map((product) => {
 				return (
 					<ProductCard
+						key={product.product_id}
 						name={product.name}
 						imgUrl={product.img_url}
 						price={product.price}
