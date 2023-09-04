@@ -2,8 +2,8 @@ import React from 'react'
 import styles from "./keyboards-styles.module.css";
 import { useState, useEffect } from "react";
 import ProductCard from "../components/product-card";
-import Navbar from "../components/navbar.js";
 import DataControlCenter from '../components/data-control-center';
+import ToTopButton from '../components/to-top-button';
 
 const axios = require("axios");
 
@@ -44,20 +44,16 @@ const Keyboards = () => {
 
 	return (
 		<div>
-			{/* <div className={styles.title}>
-				<h1>Discover new keyboards!</h1>
-			</div> */}
 			<DataControlCenter keyboardData={productData} setProductElemList={setProductElemList} />
 
 			<div
 				style={{
 					display: infoLoaded ? "none" : "grid",
 					placeContent: "center",
-					height: "70vh",
+					height: "65vh",
 					textAlign: "center",
 					fontFamily: "Poppins",
 					margin: "0",
-					backgroundColor: "#edf2f4",
 				}}
 			>
 				<h2>loading keyboard data...</h2>
@@ -71,6 +67,7 @@ const Keyboards = () => {
 				/>
 			</div>
 			<div className={styles.productList}>{productElemList}</div>
+			<ToTopButton />
 		</div>
 	);
 }

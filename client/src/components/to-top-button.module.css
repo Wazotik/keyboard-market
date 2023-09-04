@@ -1,0 +1,28 @@
+
+.upButtonContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding-right: 2rem;
+	padding-bottom: 2rem;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.upButton {
+	color: #2b2d42;
+	cursor: pointer;
+	z-index: 2;
+	transition-duration: 0.2s;
+}
+
+.upButton:hover {
+	transform: scale(1.1);
+	backface-visibility: hidden;
+}
+
+.upButton:active {
+	transform: scale(0.99);
+}

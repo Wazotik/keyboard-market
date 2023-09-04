@@ -19,6 +19,7 @@
 	flex-wrap: wrap;
 	animation: fade-in 2s ease;
 	margin-top: 2rem;
+	z-index: 1;
 }
 
 @keyframes fade-in {
