@@ -1,13 +1,26 @@
-import styles from "./product-card-styles.module.css";
+import { useState } from "react";
+import styles from "../styles/product-card-styles.module.css";
+import KeyboardReviewModal from "./keyboard-reviews-modal";
 
-const ProductCard = ({ name, imgUrl, price }) => {
+const ProductCard = ({ productID, name, imgUrl, price }) => {
+
+	const [modalVisible, setModalVisible] = useState(false);
+
+	const toggleReviewsModal = () => {
+		setModalVisible(!modalVisible);
+		console.log(modalVisible);
+	}
+
 	return (
-		<div className={styles.card}>
-			<div className={styles.imgContainer}>
-				<img src={imgUrl} alt="" />
+		<div>
+			<div className={styles.card} onClick={toggleReviewsModal}>
+				<div className={styles.imgContainer} >
+					<img src={imgUrl} alt="" />
+				</div>
+				<div className={styles.name}>{name}</div>
+				<div className={styles.price}>${price}</div>
 			</div>
-			<div className={styles.name}>{name}</div>
-			<div className={styles.price}>${price}</div>
+			{modalVisible ? <KeyboardReviewModal toggleReviewsModal={toggleReviewsModal}/> : null}
 		</div>
 	);
 };

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./keyboards-styles.module.css";
+import styles from "../styles/keyboards-styles.module.css";
 import { useState, useEffect } from "react";
 import ProductCard from "../components/product-card";
 import DataControlCenter from '../components/data-control-center';
@@ -26,6 +26,8 @@ const Keyboards = () => {
 			keyboardsData.map((product) => {
 				return (
 					<ProductCard
+						key={product.product_id}
+						productID={product.product_id}
 						name={product.name}
 						imgUrl={product.img_url}
 						price={product.price}
