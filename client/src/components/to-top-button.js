@@ -16,7 +16,7 @@ const ToTopButton = () => {
 
 			setTimeout(() => {
 				setIsScrolling(false);
-			}, 1000)
+			}, 3000)
 		}
 	};
 
@@ -32,7 +32,11 @@ const ToTopButton = () => {
 		}
 
 		window.addEventListener("scroll", toggleVisible);
-	})
+
+		return () => {
+			window.addEventListener("scroll", toggleVisible);
+		}
+	}, []);
 
 	return (
 		<div>
