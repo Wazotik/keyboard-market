@@ -12,11 +12,11 @@ const Keyboards = () => {
 	const [productData, setProductData] = useState([]);
 	const [infoLoaded, setInfoLoaded] = useState(false);
 
-	// const [productsInCart, setProductsInCart] = useState([]);
-
+	// Update keyboard elements with keyboard data from server
 	const updateProductInfo = async () => {
 		console.log("getting keyboard data");
-		const res = await axios.get("/api/all-keyboards-info");
+		// const res = await axios.get("/api/all-keyboards-info");
+		const res = await axios.get("/all-keyboards-info");
 		setInfoLoaded(true);
 		const keyboardsData = res.data;
 		console.log(keyboardsData);
@@ -34,6 +34,8 @@ const Keyboards = () => {
 			})
 		);
 	};
+
+	// Calls updateProduceInfo() once when productElemList is mounted
 	useEffect(() => {
 		updateProductInfo();
 	}, []);

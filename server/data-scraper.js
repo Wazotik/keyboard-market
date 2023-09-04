@@ -13,6 +13,7 @@ export const scrapeProducts = async () => {
 
 		let allPagesKeyboardObjs = [];
 
+		// scarpes data for all pages (need to make dynamic instead of hardcoding 12 pages)
 		for (let i = 1; i <= 12; i++) {
 			console.log(`Page: ${i}`);
 			let url = `https://mechanicalkeyboards.com/shop/index.php?pg=${i}&l=product_list&c=1&show=100`;
@@ -36,8 +37,17 @@ export const scrapeProducts = async () => {
 						img: `https://mechanicalkeyboards.com/shop/${product
 							.querySelector(".ebj_limit_img_height")
 							.getAttribute("src")}`,
-						price: parseFloat((product.querySelector(".sale").innerText).substring(1)),
-						productID: parseInt(product.querySelector("input[type='hidden']").getAttribute("value"), 10),
+						price: parseFloat(
+							product
+								.querySelector(".sale")
+								.innerText.substring(1)
+						),
+						productID: parseInt(
+							product
+								.querySelector("input[type='hidden']")
+								.getAttribute("value"),
+							10
+						),
 					};
 					productObjs.push(obj);
 					console.log("product info added");
@@ -45,13 +55,18 @@ export const scrapeProducts = async () => {
 				return productObjs;
 			});
 
-			allPagesKeyboardObjs = allPagesKeyboardObjs.concat(singlePageKeyboardObjs);
+			allPagesKeyboardObjs = allPagesKeyboardObjs.concat(
+				singlePageKeyboardObjs
+			);
 		}
 
+		// fetches additional data and updates final object array (for future features such as reviews)
 		for (let i = 0; i < allPagesKeyboardObjs.length; i++) {
 			let productObj = allPagesKeyboardObjs[i];
-			console.log(`fetching data for product id: ${productObj.productID}`);
-			let url = `https://mechanicalkeyboards.com/shop/index.php?l=product_detail&p=${productObj.productID}`
+			console.log(
+				`fetching data for product id: ${productObj.productID}`
+			);
+			let url = `https://mechanicalkeyboards.com/shop/index.php?l=product_detail&p=${productObj.productID}`;
 
 			await page.goto(url, { waitUntil: "domcontentloaded" });
 			console.log("went to url successful");
@@ -59,45 +74,55 @@ export const scrapeProducts = async () => {
 			await page.waitForSelector(".review-list");
 			let largerImgUrl = await page.evaluate(() => {
 				let productInfoElem = document.querySelector(".product-info");
-				let imgUrl = `https://mechanicalkeyboards.com/shop/${productInfoElem.querySelector("img").getAttribute("src")}`;
+				let imgUrl = `https://mechanicalkeyboards.com/shop/${productInfoElem
+					.querySelector("img")
+					.getAttribute("src")}`;
 				return imgUrl;
-			})
-			productObj["largerImg"] = largerImgUrl; 
+			});
+			productObj["largerImg"] = largerImgUrl;
 
 			let allReviewsData = await page.evaluate(() => {
-				const allReviewElems = document.querySelectorAll(".review-content");
-				
+				const allReviewElems =
+					document.querySelectorAll(".review-content");
+
 				// Limit on reviews reduce amount of storage used
 				let numberOfReviewsToMap = 10;
 
 				if (allReviewElems.length !== 0) {
-					let reviewsData = ([...allReviewElems].slice(0, numberOfReviewsToMap)).map((reviewElem) => {
-						let reviewText = reviewElem.querySelector("p").innerText; 
-						let reviewDate = (reviewElem.previousElementSibling).querySelector("span").innerText
-						return [reviewText, reviewDate];
-					})
+					let reviewsData = [...allReviewElems]
+						.slice(0, numberOfReviewsToMap)
+						.map((reviewElem) => {
+							let reviewText =
+								reviewElem.querySelector("p").innerText;
+							let reviewDate =
+								reviewElem.previousElementSibling.querySelector(
+									"span"
+								).innerText;
+							return [reviewText, reviewDate];
+						});
 					console.log(reviewsData);
 					return reviewsData;
-				}
-				else {
+				} else {
 					return [];
 				}
-			})
+			});
 			productObj["reviewsData"] = allReviewsData;
 
 			let starRating = await page.evaluate(() => {
-				let productMetadataElem = document.querySelector(".review-metadata");
+				let productMetadataElem =
+					document.querySelector(".review-metadata");
 				if (productMetadataElem) {
-					let rating = productMetadataElem.querySelector("img").getAttribute("src").charAt(13);
+					let rating = productMetadataElem
+						.querySelector("img")
+						.getAttribute("src")
+						.charAt(13);
 					return rating;
-				}
-				else {
+				} else {
 					return -1;
 				}
-			})
+			});
 			productObj["starRating"] = parseInt(starRating, 10);
 		}
-
 
 		await browser.close();
 		console.log(allPagesKeyboardObjs);

@@ -2,10 +2,8 @@ import * as dataScraper from "./data-scraper.js";
 import { updateKeyboards } from "./database-querying.js";
 import cron from "node-cron";
 
-// Update database with new scraped keyboard every 2 days at 11pm
-// cron.schedule("0 23 */2 * *", async () => {
-
-cron.schedule("0 1 * * *", async () => {
+// Update database with new scraped keyboard every week on a Sunday
+cron.schedule("0 0 * * 0", async () => {
 	try {
 		console.log("updating keyboard info in DB");
 		const scrapedKeyboardData = await dataScraper.scrapeProducts();
@@ -15,7 +13,3 @@ cron.schedule("0 1 * * *", async () => {
 		console.error("Error with Database updater", error);
 	}
 });
-
-
-// cron.schedule("* * * * *", async () => {
-// });

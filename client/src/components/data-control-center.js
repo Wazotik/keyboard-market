@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState  } from 'react';
 import styles from './data-control-center-style.module.css';
-import MultiRangeSlider from "multi-range-slider-react";
 import ProductCard from './product-card';
 import { sortPriceHigh, sortPriceLow } from '../scripts/sortFunctions';
 
@@ -11,7 +10,6 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 	const [minPrice, setMinPrice] = useState("");
 	const [maxPrice, setMaxPrice] = useState("");
 	const [sortFunction, setSortFunction] = useState("");
-	// const [filteredKeyboardElems, setFilteredKeyboardElems] = useState([]);
 
 	const clearInputFields = () => {
 		setSearchText("");
@@ -20,6 +18,7 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 		setSortFunction("");
 	}
 
+	// selects sorting function depending on user selection
 	const handleSort = (data) => {
 		const selectedSort = sortFunction;
 		let sortedData = []
@@ -35,6 +34,8 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 		return sortedData;
 	};
 
+
+	// invoked every time state changes, goes through all possible filtering inputs and filters data
 	const filterKeyboardData = () => {
 		let filteredData = keyboardData;
 		if (searchText) {
@@ -66,6 +67,7 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 		)
 	}
 
+	// filters data only if state of inputs is changed
 	useEffect(() => {
 		filterKeyboardData();
 	}, [searchText, sortFunction, minPrice, maxPrice]);

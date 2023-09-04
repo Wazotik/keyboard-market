@@ -18,15 +18,10 @@ export const getKeyboards = async () => {
 	return res[0];
 };
 
-// id=? -> stops sql injections
 export const getKeyboard = async (id) => {
 	const res = await pool.query(`SELECT * FROM keyboard_info WHERE id=?`, [id]);
 	return res[0];
 }
-
-// export const insertKeyboard = async (name, img_url, price) => {
-// 	await pool.query(`INSERT INTO ${process.env.MYSQL_DATABASE_TABLE} (name, img_url, price) VALUES (?, ?, ?)`, [name, img_url, price]);
-// };
 
 export const updateKeyboards = async (keyboardObjArr) => {
 	await pool.query(`DELETE FROM ${process.env.MYSQL_DATABASE_TABLE}`);
