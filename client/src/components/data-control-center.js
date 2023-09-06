@@ -58,8 +58,12 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 			filteredData.map((product) => {
 				return (
 					<ProductCard
+<<<<<<< HEAD
 						key={product.id}
 						productID={product.product_id}
+=======
+						key={product.product_id}
+>>>>>>> c9b8effc852747a73eaea25192ea1a0a9bf9e8f3
 						name={product.name}
 						imgUrl={product.img_url}
 						largerImgUrl={product.larger_img_url}
