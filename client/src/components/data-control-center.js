@@ -58,10 +58,14 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 			filteredData.map((product) => {
 				return (
 					<ProductCard
-						key={product.product_id}
+						key={product.id}
+						productID={product.product_id}
 						name={product.name}
 						imgUrl={product.img_url}
+						largerImgUrl={product.larger_img_url}
 						price={product.price}
+						reviews={product.reviews}
+						starRating={product.star_rating}
 					></ProductCard>
 				);
 			})

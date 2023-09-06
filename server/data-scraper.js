@@ -98,7 +98,8 @@ export const scrapeProducts = async () => {
 								reviewElem.previousElementSibling.querySelector(
 									"span"
 								).innerText;
-							return [reviewText, reviewDate];
+							let reviewStarRating = reviewElem.previousElementSibling.querySelector("img").getAttribute("src").charAt(13);
+							return [reviewText, reviewDate, reviewStarRating];
 						});
 					console.log(reviewsData);
 					return reviewsData;

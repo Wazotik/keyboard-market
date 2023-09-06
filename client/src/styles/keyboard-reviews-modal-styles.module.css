@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 .overlay {
 	width: 100vw;
@@ -10,18 +11,101 @@
 	background: rgba(49, 49, 49, 0.8);
 }
 
-.content { 
+.modal { 
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
-	max-width: 1200px;
-	min-width: 1200px;
-	height: 700px;
+	width: 1500px;
+	min-width: 1500px;
+	height: 800px;
 	display: flex;
 	justify-content: center;
-	flex-direction: column;
 	align-items: center;
+}
+
+
+.content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-family: "Poppins", sans-serif;
+}
+
+
+.backToCatalogButton {
+	color: white;
+	position: fixed;
+	left: 30px;
+	bottom: 30px;
+	background: #8d99ae;
+	font-size: 1rem;
+	letter-spacing: 1px;
+	padding: 1rem;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	transition-duration: .2s;
+	display: inline-block;
+	perspective: 1000px;
 	cursor: pointer;
 }
+
+.backToCatalogButton:hover {
+	transform: scale(1.05);
+	backface-visibility: hidden;
+}
+
+.backToCatalogButton:active {
+	transition-duration: .05s;
+	transform: scale(0.99);
+}
+
+
+.ratingAndImg {
+	display: flex;
+	flex-direction: column;
+	padding: 3rem;
+}
+
+.averageRating {
+}
+
+.largeImgContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.largeImgContainer img {
+	width: 700px;
+	height: auto;
+}
+
+.reviewsContainer {
+	overflow-y: scroll;
+	width: 750px;
+	height: 90%;
+	border-top: 2px solid #2b2d42;
+	border-bottom: 2px solid #2b2d42;
+}
+
+.review {
+	font-size: 16px;
+	margin-bottom: 1rem;
+}
+
+.date {
+
+}
+
+.reviewText {
+	margin-top: 0.5rem;
+}
+
