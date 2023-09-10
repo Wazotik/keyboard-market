@@ -22,7 +22,6 @@ const ProductCard = ({ name, imgUrl, largerImgUrl, price, reviews, starRating })
 		<div>
 			<div className={styles.card} onClick={toggleReviewsModal}>
 				<div className={styles.imgContainer} >
-					{/* <img src={imgUrl} alt="" /> */}
 					<LazyLoadImage src={imgUrl} alt={`${name} image`} effect="opacity"/>
 				</div>
 				<div className={styles.name}>{name}</div>
