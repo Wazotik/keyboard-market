@@ -7,9 +7,14 @@ cron.schedule("0 0 * * 0", async () => {
 	try {
 		console.log("updating keyboard info in DB");
 		const scrapedKeyboardData = await dataScraper.scrapeProducts();
-		await updateKeyboards(scrapedKeyboardData);
-		console.log("Data scraped and saved to DB successfully :)");
+		if (scrapedKeyboardData.length !== 0) {
+			await updateKeyboards(scrapedKeyboardData);
+			console.log("Data scraped and saved to DB successfully :)");
+		}
+		else {
+			console.log("UNABLE TO GET SCRAPED DATA");
+		}
 	} catch (error) {
-		console.error("Error with Database updater", error);
+		console.error("ERROR WITH DATABASE UPDATER:", error);
 	}
 });

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styles from "../styles/keyboard-reviews-modal-styles.module.css";
 import ReactStars from "react-rating-stars-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 
 const KeyboardReviewModal = ({ toggleReviewsModal, largerImgUrl, reviews, starRating }) => {
 
@@ -12,7 +14,7 @@ const KeyboardReviewModal = ({ toggleReviewsModal, largerImgUrl, reviews, starRa
 						<button type="button" className={styles.backToCatalogButton} onClick={toggleReviewsModal}>back to catalog</button>
 						<div className={styles.ratingAndImg}>
 							<div className={styles.largeImgContainer}>
-								<img src={largerImgUrl} alt="" />
+								<LazyLoadImage src={largerImgUrl} alt="big board" effect="opacity" style={{zIndex: 0}}/>
 							</div>
 							<div className={styles.averageRating}>
 								<ReactStars count={5} value={starRating} a11y={false} edit={false} size={54}/>

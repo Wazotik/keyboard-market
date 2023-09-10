@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styles from "../styles/product-card-styles.module.css";
 import KeyboardReviewModal from "./keyboard-reviews-modal";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 
 const ProductCard = ({ name, imgUrl, largerImgUrl, price, reviews, starRating }) => {
 
@@ -20,7 +22,8 @@ const ProductCard = ({ name, imgUrl, largerImgUrl, price, reviews, starRating })
 		<div>
 			<div className={styles.card} onClick={toggleReviewsModal}>
 				<div className={styles.imgContainer} >
-					<img src={imgUrl} alt="" />
+					{/* <img src={imgUrl} alt="" /> */}
+					<LazyLoadImage src={imgUrl} alt={`${name} image`} effect="opacity"/>
 				</div>
 				<div className={styles.name}>{name}</div>
 				<div className={styles.price}>${price}</div>

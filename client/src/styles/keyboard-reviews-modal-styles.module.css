@@ -9,6 +9,7 @@
 	bottom: 0;
 	position: fixed;
 	background: rgba(49, 49, 49, 0.8);
+	z-index: 10;
 }
 
 .modal { 
@@ -61,12 +62,6 @@
 	transform: scale(1.05);
 	backface-visibility: hidden;
 }
-
-.backToCatalogButton:active {
-	transition-duration: .05s;
-	transform: scale(0.99);
-}
-
 
 .ratingAndImg {
 	display: flex;

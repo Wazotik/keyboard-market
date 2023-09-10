@@ -6,6 +6,7 @@ export const scrapeProducts = async () => {
 		const browser = await puppeteer.launch({
 			headless: true,
 			args: ['--proxy-server="direct://"', "--proxy-bypass-list=*"],
+			executablePath: process.env.CHROME_BIN || null,
 		});
 		console.log("launched");
 		const page = await browser.newPage();
