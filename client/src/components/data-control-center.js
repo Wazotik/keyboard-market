@@ -1,10 +1,10 @@
 import React, { useEffect, useState  } from 'react';
 import styles from '../styles/data-control-center-styles.module.css';
 import ProductCard from './product-card';
-import { sortPriceHigh, sortPriceLow } from '../scripts/sortFunctions';
+import { sortAsc, sortDesc } from '../scripts/sortFunctions';
 
 
-const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, sortLowFunction}) => {
+const DataControlCenter = ({keyboardData, setProductElemList}) => {
 
 	const [searchText, setSearchText] = useState("");
 	const [minPrice, setMinPrice] = useState("");
@@ -23,13 +23,19 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 		const selectedSort = sortFunction;
 		let sortedData = []
 		if (selectedSort === "priceAsc") {
-			sortedData = sortPriceLow(data)
+			sortedData = sortAsc(data, "price")
 		}
 		else if (selectedSort === "priceDesc") {
-			sortedData = sortPriceHigh(data);
+			sortedData = sortDesc(data, "price");
+		}
+		else if (selectedSort === "starAsc") {
+			sortedData = sortAsc(data, "star")
+		}
+		else if (selectedSort === "starDesc") {
+			sortedData = sortDesc(data, "star");
 		}
 		else {
-			alert("INCOREECT SORT SELECTION");
+			alert("INCORRECT SORT SELECTION");
 		}
 		return sortedData;
 	};
@@ -102,6 +108,8 @@ const DataControlCenter = ({keyboardData, setProductElemList, sortHighFunction, 
 						<option value={""} disabled selected></option>
 						<option value="priceAsc">Price (asc)</option>
 						<option value="priceDesc">Price (desc)</option>
+						<option value="starAsc">Star Rating (asc)</option>
+						<option value="starDesc">Star Rating (desc)</option>
 					</select>
 				</div>
 

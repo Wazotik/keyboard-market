@@ -11,15 +11,15 @@
 	height: 300px;
 	transition: all 0.3s ease-out;
 	border: solid 3px transparent;
-	cursor: pointer;
 	position: relative;
 	margin-bottom: 2rem;
 }
 
-.img:hover {
+/* .card:hover {
 	transition: all 0.3s ease-out;
 	transform: scale(1.02);
-}
+} */
+
 
 .imgContainer {
 	display: flex;
@@ -28,12 +28,18 @@
 	width: 100%;
 	height: 100px;
 	overflow: hidden;
+	cursor: pointer;
 }
 
 .img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	transition: all 0.3s ease-out;
+}
+
+.img:hover {
+	transform: scale(1.08);
 }
 
 .nameContainer {
