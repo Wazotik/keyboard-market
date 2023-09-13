@@ -3,6 +3,7 @@ import styles from "../styles/keyboard-reviews-modal-styles.module.css";
 import ReactStars from "react-rating-stars-component";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/opacity.css";
+import { IoMdArrowRoundBack } from "react-icons/io"
 
 const KeyboardReviewModal = ({ toggleReviewsModal, largerImgUrl, reviews, starRating }) => {
 
@@ -11,7 +12,9 @@ const KeyboardReviewModal = ({ toggleReviewsModal, largerImgUrl, reviews, starRa
 			<div className={styles.overlay}>
 				<div className={styles.modal} >
 					<div className={styles.content}>
-						<button type="button" className={styles.backToCatalogButton} onClick={toggleReviewsModal}>back to catalog</button>
+						<div className={styles.backToCatalogButton} onClick={toggleReviewsModal}>
+							<IoMdArrowRoundBack size={56} onClick={toggleReviewsModal} />
+						</div>
 						<div className={styles.ratingAndImg}>
 							<div className={styles.largeImgContainer}>
 								<LazyLoadImage src={largerImgUrl} alt="big board" effect="opacity" style={{zIndex: 0}}/>
@@ -22,7 +25,7 @@ const KeyboardReviewModal = ({ toggleReviewsModal, largerImgUrl, reviews, starRa
 						</div>
 
 						<div className={styles.reviewsContainer}>
-							{reviews.map((review) => {
+							{reviews.length ? reviews.map((review) => {
 								return (
 									<div className={styles.review}>
 										<div className={styles.starRating}>
@@ -37,7 +40,7 @@ const KeyboardReviewModal = ({ toggleReviewsModal, largerImgUrl, reviews, starRa
 									</div>
 								)
 							})
-							}
+							: <div className={styles.noReviewContainer}>no reviews for this product :(</div>}
 						</div>
 					</div>
 				</div>

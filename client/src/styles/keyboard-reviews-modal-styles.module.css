@@ -24,6 +24,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-radius: 10px;
 }
 
 
@@ -39,19 +40,10 @@
 
 
 .backToCatalogButton {
-	color: white;
 	position: fixed;
 	left: 30px;
-	bottom: 30px;
-	background: #8d99ae;
-	font-size: 1rem;
-	letter-spacing: 1px;
-	padding: 1rem;
-	border: none;
-	outline: none;
-	border-radius: 5px;
-	padding-left: 1rem;
-	padding-right: 1rem;
+	bottom: 23px;
+	color: #8d99ae;
 	transition-duration: .2s;
 	display: inline-block;
 	perspective: 1000px;
@@ -59,7 +51,7 @@
 }
 
 .backToCatalogButton:hover {
-	transform: scale(1.05);
+	transform: scale(1.1);
 	backface-visibility: hidden;
 }
 
@@ -87,8 +79,6 @@
 	overflow-y: scroll;
 	width: 750px;
 	height: 90%;
-	border-top: 2px solid #2b2d42;
-	border-bottom: 2px solid #2b2d42;
 }
 
 .review {
@@ -103,4 +93,12 @@
 .reviewText {
 	margin-top: 0.5rem;
 }
+
+.noReviewContainer {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 
