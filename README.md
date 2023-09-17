@@ -1,6 +1,4 @@
 # KMarket
-Explore and uncover the ideal mechanical keyboard for you!
-
 #### Link to website : https://keyboard-market.netlify.app/
 
 ### Table of Contents:
