@@ -7,6 +7,7 @@
 * [Screenshots](#screenshots)
 * [Features](#features)
 * [Technologies Used](#technologies-used)
+* [Installation](#getting-started)
   
 ## Introduction
 
