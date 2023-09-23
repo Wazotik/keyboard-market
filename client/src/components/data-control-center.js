@@ -40,7 +40,7 @@ const DataControlCenter = ({keyboardData, setProductElemList}) => {
 	};
 
 
-	// invokes on mount, goes through all possible filtering inputs and filters data
+	// goes through all possible filtering inputs and filters data
 	const filterKeyboardData = () => {
 		let filteredData = keyboardData;
 		if (searchText) {
@@ -58,7 +58,6 @@ const DataControlCenter = ({keyboardData, setProductElemList}) => {
 		if (sortFunction) {
 			filteredData = handleSort(filteredData);
 		}
-		console.log(filteredData);
 		setProductElemList(
 			filteredData.map((product) => {
 				return (
@@ -77,10 +76,13 @@ const DataControlCenter = ({keyboardData, setProductElemList}) => {
 		)
 	}
 
-	// filters data only if state of inputs is changed
+	// filters data only if state of inputs change
 	useEffect(() => {
-		filterKeyboardData();
-		
+		const debounceFilter = setTimeout(() => {
+			filterKeyboardData();
+		}, 400);
+
+		return () => clearTimeout(debounceFilter);
 	}, [searchText, sortFunction, minPrice, maxPrice]);
 
 	return (

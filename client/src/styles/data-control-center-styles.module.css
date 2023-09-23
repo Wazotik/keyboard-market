@@ -65,9 +65,6 @@ input:focus-visible {
 	flex: 2;
 }
 
-.resetButtonContainer {
-}
-
 .resetButtonContainer button {
 	background: #fff;
 	font-size: 18px;
@@ -80,12 +77,5 @@ input:focus-visible {
 }
 
 .resetButtonContainer button:hover {
-	/* transform: scale(1.1);
-	backface-visibility: hidden; */
 	font-weight: bold;
 }
-
-/* .resetButtonContainer button:active {
-	transition-duration: .05s;
-	transform: scale(0.99);
-} */
