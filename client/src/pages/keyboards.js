@@ -15,12 +15,12 @@ const Keyboards = () => {
 	// Update keyboard elements with keyboard data from server
 	const updateProductInfo = async () => {
 		console.log("getting keyboard data");
-		const res = await axios.get("/api/keyboards");
-		// const res = await axios.get("/keyboards");
-		setInfoLoaded(true);
+		// const res = await axios.get("/api/keyboards");
+		const res = await axios.get("/keyboards");
 		const keyboardsData = res.data;
 		console.log(keyboardsData);
 		setProductData(keyboardsData);
+		setInfoLoaded(true);
 
 		setProductElemList(
 			keyboardsData.map((product) => {
@@ -40,7 +40,7 @@ const Keyboards = () => {
 		);
 	};
 
-	// Calls updateProduceInfo() once when productElemList is mounted
+	// Calls updateProduceInfo() on initial page load only
 	useEffect(() => {
 		updateProductInfo();
 	}, []);
@@ -57,7 +57,7 @@ const Keyboards = () => {
 					placeContent: "center",
 					height: "65vh",
 					textAlign: "center",
-					fontFamily: "Poppins",
+					fontFamily: "Poppins, sans-serif",
 					margin: "0",
 				}}
 			>

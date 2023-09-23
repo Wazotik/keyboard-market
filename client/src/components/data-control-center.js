@@ -19,20 +19,19 @@ const DataControlCenter = ({keyboardData, setProductElemList}) => {
 	}
 
 	// selects sorting function depending on user selection
-	const handleSort = (data) => {
-		const selectedSort = sortFunction;
+	const handleSort = (keyboardData) => {
 		let sortedData = []
-		if (selectedSort === "priceAsc") {
-			sortedData = sortAsc(data, "price")
+		if (sortFunction === "priceAsc") {
+			sortedData = sortAsc(keyboardData, "price")
 		}
-		else if (selectedSort === "priceDesc") {
-			sortedData = sortDesc(data, "price");
+		else if (sortFunction === "priceDesc") {
+			sortedData = sortDesc(keyboardData, "price");
 		}
-		else if (selectedSort === "starAsc") {
-			sortedData = sortAsc(data, "star")
+		else if (sortFunction === "starAsc") {
+			sortedData = sortAsc(keyboardData, "star")
 		}
-		else if (selectedSort === "starDesc") {
-			sortedData = sortDesc(data, "star");
+		else if (sortFunction === "starDesc") {
+			sortedData = sortDesc(keyboardData, "star");
 		}
 		else {
 			alert("INCORRECT SORT SELECTION");
@@ -41,7 +40,7 @@ const DataControlCenter = ({keyboardData, setProductElemList}) => {
 	};
 
 
-	// invoked every time state changes, goes through all possible filtering inputs and filters data
+	// invokes on mount, goes through all possible filtering inputs and filters data
 	const filterKeyboardData = () => {
 		let filteredData = keyboardData;
 		if (searchText) {
@@ -81,6 +80,7 @@ const DataControlCenter = ({keyboardData, setProductElemList}) => {
 	// filters data only if state of inputs is changed
 	useEffect(() => {
 		filterKeyboardData();
+		
 	}, [searchText, sortFunction, minPrice, maxPrice]);
 
 	return (

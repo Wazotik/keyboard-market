@@ -55,30 +55,31 @@
 	backface-visibility: hidden;
 }
 
-.ratingAndImg {
-	display: flex;
-	flex-direction: column;
-	padding: 3rem;
-}
-
-.averageRating {
+.averageRatingContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 2rem;
+	margin-top: 1rem;
 }
 
 .largeImgContainer {
+	width: 50%;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	margin-left: 2rem;
+	margin-right: 2rem;
 }
 
-.largeImgContainer img {
-	width: 700px;
-	height: auto;
+.largeImg {
+	max-width: 700px;
+	max-height: 550px;
 }
 
 .reviewsContainer {
 	overflow-y: scroll;
-	width: 750px;
-	height: 90%;
+	width: 800px;
+	height: 95%;
 }
 
 .review {

@@ -15,13 +15,11 @@ const KeyboardReviewModal = ({ toggleReviewsModal, largerImgUrl, reviews, starRa
 						<div className={styles.backToCatalogButton} onClick={toggleReviewsModal}>
 							<IoMdArrowRoundBack size={56} onClick={toggleReviewsModal} />
 						</div>
-						<div className={styles.ratingAndImg}>
-							<div className={styles.largeImgContainer}>
-								<LazyLoadImage src={largerImgUrl} alt="big board" effect="opacity" style={{zIndex: 0}}/>
-							</div>
-							<div className={styles.averageRating}>
-								<ReactStars count={5} value={starRating} a11y={false} edit={false} size={54}/>
-							</div>
+						<div className={styles.averageRatingContainer}>
+							<ReactStars count={5} value={starRating} a11y={false} edit={false} size={54}/>
+						</div>
+						<div className={styles.largeImgContainer}>
+							<LazyLoadImage className={styles.largeImg} src={largerImgUrl} alt="big board" effect="opacity" style={{zIndex: 0}}/>
 						</div>
 
 						<div className={styles.reviewsContainer}>
