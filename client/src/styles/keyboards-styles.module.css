@@ -11,6 +11,34 @@
 	font-weight: bold;
 }
 
+.main {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	padding-left: 15rem;
+	padding-right: 15rem;
+	padding-top: 2rem;
+	font-family: 'Poppins',sans-serif;
+}
+
+.loadingData {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20rem;
+}
+
+.productListContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 3rem;
+	flex: 10;
+	/* border: 2px solid black; */
+}
+
 .productList {
 	display: flex;
 	justify-content: space-around;
@@ -18,8 +46,9 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	animation: fade-in 2s ease;
-	margin-top: 2rem;
 }
+
+
 
 @keyframes fade-in {
 	0% {

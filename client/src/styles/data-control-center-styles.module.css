@@ -3,32 +3,32 @@
 .dataControlCenterContainer {
 	box-sizing: border-box;
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	padding-top: 1.5em;
-	padding-bottom: 2rem;
-	padding-left: 5rem;
-	padding-right: 5rem;
-	background-color: #8d99ae;
+	flex-direction: column;
+	justify-content: left;
+	align-items: left;
+	font-family: "poppins", sans-serif;  
+	width: 15rem;
+	height: 100vh;
+	margin-right: 2rem;
 }
 
-.datacontrolcentercontainer ::placeholder, option, input, select, label, button {
+.dataControlCenterContainer ::placeholder, option, input, select, label, button {
 	font-family: "poppins", sans-serif;  
 }
 
 .inputContainer {
-	margin-left: 3rem;
-	margin-right: 3rem;
 	display: flex;
 	flex-direction: column;
-	font-size: 1rem;
 	letter-spacing: 1px;
-	color: #edf2f4;
+	padding-bottom: 1.8rem;
+	padding-top: 2rem;
+	border-bottom: 1px solid #2b2d42;
 }
 
 .inputContainer label {
-	margin-left: 1px;
+	margin-bottom: 1rem;
+	font-weight: bold;
+	font-size: 16px; 
 }
 
 .inputContainer input, select {
@@ -36,10 +36,24 @@
 	padding-bottom: 0.5rem;
 	padding-left: 0.8rem;
 	padding-right: 0.8rem;
-	border-radius: 5px;
 	outline: none;
 	border: none;
-	/* border: 1px solid #2b2d42; */
+	border: 1px solid #2b2d42;
+}
+
+
+input:focus {
+	border-radius: 3px;
+	border: 2px solid #2b2d42;
+	outline-offset: 0;
+	padding-top: 0.44rem;
+	padding-bottom: 0.44rem;
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+}
+
+input:focus-visible {
+	outline-offset: 0;
 }
 
 .inputContainer option {
@@ -52,30 +66,26 @@
 }
 
 .resetButtonContainer {
-	margin-top: 1rem;
-	margin-left: 5rem;
 }
 
 .resetButtonContainer button {
 	background: #fff;
-	font-size: 1rem;
+	font-size: 18px;
 	letter-spacing: 1px;
 	border: none;
 	outline: none;
-	border-radius: 5px;
-	padding: 10px 40px;
-	transition-duration: .2s;
-	display: inline-block;
-	perspective: 1000px;
 	cursor: pointer;
+	transition: font-weight 0.2s ease-out;
+	padding: 0;
 }
 
 .resetButtonContainer button:hover {
-	transform: scale(1.1);
-	backface-visibility: hidden;
+	/* transform: scale(1.1);
+	backface-visibility: hidden; */
+	font-weight: bold;
 }
 
-.resetButtonContainer button:active {
+/* .resetButtonContainer button:active {
 	transition-duration: .05s;
 	transform: scale(0.99);
-}
+} */

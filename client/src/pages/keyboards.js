@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
 import styles from "../styles/keyboards-styles.module.css";
 import { useState, useEffect } from "react";
 import ProductCard from "../components/product-card";
-import DataControlCenter from '../components/data-control-center';
-import ToTopButton from '../components/to-top-button';
+import DataControlCenter from "../components/data-control-center";
+import ToTopButton from "../components/to-top-button";
+import { TailSpin } from "react-loader-spinner";
 
 const axios = require("axios");
 
@@ -15,8 +16,8 @@ const Keyboards = () => {
 	// Update keyboard elements with keyboard data from server
 	const updateProductInfo = async () => {
 		console.log("getting keyboard data");
-		const res = await axios.get("/api/keyboards");
-		// const res = await axios.get("/keyboards");
+		// const res = await axios.get("/api/keyboards");
+		const res = await axios.get("/keyboards");
 		const keyboardsData = res.data;
 		console.log(keyboardsData);
 		setProductData(keyboardsData);
@@ -45,37 +46,35 @@ const Keyboards = () => {
 		updateProductInfo();
 	}, []);
 
-
-
 	return (
 		<div>
-			<DataControlCenter keyboardData={productData} setProductElemList={setProductElemList} />
-
-			<div
-				style={{
-					display: infoLoaded ? "none" : "grid",
-					placeContent: "center",
-					height: "65vh",
-					textAlign: "center",
-					fontFamily: "Poppins, sans-serif",
-					margin: "0",
-				}}
-			>
-				<h2>loading keyboard data...</h2>
-				<img
-					src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"
-					alt=""
-					style={{
-						width: "50%",
-						margin: "0 auto",
-					}}
+			<div className={styles.main}>
+				<DataControlCenter
+					keyboardData={productData}
+					setProductElemList={setProductElemList}
 				/>
+				<div className={styles.productListContainer}>
+					{!infoLoaded ? (
+						<div className={styles.loadingData}>
+							<h3>Loading Keyboard Data...</h3>
+							<TailSpin
+								height="40"
+								width="40"
+								ariaLabel="tail-spin-loading"
+								radius="1"
+								color="#2b2d42"
+							/>
+						</div>
+					) : (
+						<div className={styles.productList}>
+							{productElemList}
+						</div>
+					)}
+				</div>
 			</div>
-			<div className={styles.productList}>{productElemList}</div>
 			<ToTopButton />
 		</div>
 	);
-}
-
+};
 
 export default Keyboards;

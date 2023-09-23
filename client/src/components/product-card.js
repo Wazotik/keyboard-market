@@ -21,8 +21,8 @@ const ProductCard = ({ name, imgUrl, largerImgUrl, price, reviews, starRating })
 
 	return (
 		<div>
-			<div className={styles.card} onClick={toggleReviewsModal}>
-				<div className={styles.imgContainer} >
+			<div className={styles.card}>
+				<div className={styles.imgContainer} onClick={toggleReviewsModal} >
 					<LazyLoadImage className={styles.img} src={imgUrl} alt={`${name} image`} effect="opacity"/>
 				</div>
 				<div className={styles.nameContainer}>

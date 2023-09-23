@@ -87,18 +87,18 @@ const DataControlCenter = ({keyboardData, setProductElemList}) => {
 		<div>
 			<div className={styles.dataControlCenterContainer}>
 
-				<div className={`${styles.inputContainer} ${styles.inputContainerBigger}`}>
-					<label htmlFor="searchInput">Find a keyboard:</label>
+				<div className={`${styles.inputContainer}`}>
+					<label htmlFor="searchInput">Search Keyboards</label>
 					<input id='searchInput' value={searchText} type="text" placeholder="Enter keywords (Ducky, Black, 60%)..." onChange={(e) => setSearchText(e.target.value)} />
 				</div>
 
 				<div className={styles.inputContainer}>
-					<label htmlFor="minPriceInput">Min price:</label>
+					<label htmlFor="minPriceInput">Minimum price:</label>
 					<input value={minPrice} id='minPriceInput' type="number" placeholder="" onChange={(e) => setMinPrice(e.target.value)} />
 				</div>
 
 				<div className={styles.inputContainer}>
-					<label htmlFor="maxPriceInput">Max price:</label>
+					<label htmlFor="maxPriceInput">Maximum price:</label>
 					<input value={maxPrice} id='maxPriceInput' type="number" placeholder="" onChange={(e) => setMaxPrice(e.target.value)} />
 				</div>
 				

@@ -3,13 +3,13 @@
 .navbar {
 	background-color: #2b2d42;
 	top: 0;
-	height: 60px;
+	height: 70px;
 	display: flex;
 	justify-content: left;
 	align-items: center;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	padding-left: 4.5rem;
+	padding-left: 15rem;
 	padding-right: 8rem;
 	/* z-index: 100; */
 }
@@ -17,7 +17,7 @@
 .logo {
 	text-align: left;
 	font-family: 'Lily Script One';
-	font-size: 40px;
+	font-size: 36px;
 	letter-spacing: 3px;
 	font-weight: bold;
 	text-align: left;
