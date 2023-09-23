@@ -47,11 +47,11 @@ const DataControlCenter = ({ keyboardData, setProductElemList }) => {
 			filteredData = filteredData.filter((keyboard) => keyboard.name.toLowerCase().includes(searchText.toLowerCase()));
 		}
 
-		if (minPrice) {
+		if (minPrice !== '') {
 			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) >= parseFloat(minPrice));
 		}
 
-		if (maxPrice) {
+		if (maxPrice !== '') {
 			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) <= parseFloat(maxPrice));
 		}
 
@@ -76,7 +76,12 @@ const DataControlCenter = ({ keyboardData, setProductElemList }) => {
 		)
 	}
 
-	// filters data only if state of inputs change
+	// filter data on initial page load
+	useEffect(() => {
+		filterKeyboardData();
+	}, [keyboardData]);
+
+	// filters data if state of inputs change
 	useEffect(() => {
 		const debounceFilter = setTimeout(() => {
 			filterKeyboardData();
