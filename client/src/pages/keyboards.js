@@ -53,24 +53,22 @@ const Keyboards = () => {
 					keyboardData={productData}
 					setProductElemList={setProductElemList}
 				/>
-				<div className={styles.productListContainer}>
-					{!infoLoaded ? (
-						<div className={styles.loadingData}>
-							<h3>Loading Keyboard Data...</h3>
-							<TailSpin
-								height="40"
-								width="40"
-								ariaLabel="tail-spin-loading"
-								radius="1"
-								color="#2b2d42"
-							/>
-						</div>
-					) : (
-						<div className={styles.productList}>
-							{productElemList}
-						</div>
-					)}
-				</div>
+				{!infoLoaded ? (
+					<div className={styles.loadingData}>
+						<h3>Loading Keyboard Data...</h3>
+						<TailSpin
+							height="40"
+							width="40"
+							ariaLabel="tail-spin-loading"
+							radius="1"
+							color="#2b2d42"
+						/>
+					</div>
+				) : (
+					<div className={styles.productList}>
+						{productElemList}
+					</div>
+				)}
 			</div>
 			<ToTopButton />
 		</div>

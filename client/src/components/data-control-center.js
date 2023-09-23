@@ -4,7 +4,7 @@ import ProductCard from './product-card';
 import { sortAsc, sortDesc } from '../scripts/sortFunctions';
 
 
-const DataControlCenter = ({keyboardData, setProductElemList}) => {
+const DataControlCenter = ({ keyboardData, setProductElemList }) => {
 
 	const [searchText, setSearchText] = useState("");
 	const [minPrice, setMinPrice] = useState("");
@@ -48,11 +48,11 @@ const DataControlCenter = ({keyboardData, setProductElemList}) => {
 		}
 
 		if (minPrice) {
-			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) >= minPrice);
+			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) >= parseFloat(minPrice));
 		}
 
 		if (maxPrice) {
-			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) <= maxPrice);
+			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) <= parseFloat(maxPrice));
 		}
 
 		if (sortFunction) {
