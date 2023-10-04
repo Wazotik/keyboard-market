@@ -33,7 +33,7 @@ That's where KMarket comes in! Navigate the world of mechanical keyboards effort
 * Sort by:
   * Price (ascending and descending)
   * Rating (ascending and descending)
-* View product reviews
+* View product reviews by clicking on a keyboard's image
   * Date and time of posting
   * User's rating
 * Image lazy-loading
