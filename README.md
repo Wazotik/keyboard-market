@@ -51,9 +51,9 @@ That's where KMarket comes in! Navigate the world of mechanical keyboards effort
 
 | Front-End  | Back-End | Deployment | 
 | :-------------: | :-------------: | :-------------: |
-| ReactJS | Express.js | Netlify | 
+| React | Express.js (Node.js) | Netlify | 
 | HTML | JavaScript | Heroku |
-| CSS | Axios | 
+| CSS |  | AWS (RDS)
 
 ## Getting Started
 
