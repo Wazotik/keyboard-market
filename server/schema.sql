@@ -6,7 +6,6 @@ CREATE TABLE keyboard_info (
 	name VARCHAR(255) NOT NULL,
 	img_url VARCHAR(255),
 	price	DECIMAL(7, 2) NOT NULL,
-	product_id INT NOT NULL,
 	larger_img_url VARCHAR(255),
 	star_rating INT,
 	reviews JSON

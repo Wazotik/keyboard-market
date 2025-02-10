@@ -18,6 +18,10 @@ export const getKeyboards = async () => {
 	return res[0];
 };
 
+export const getSomeKeyboards = async (offset) => {
+	const res = await pool.query(`SELECT * FROM ${process.env.MYSQL_DATABASE_TABLE} LIMIT 100 OFFSET ${offset}`);
+	return res[0];
+};
 
 // query table for a single row depending on product id
 export const getKeyboard = async (id) => {
@@ -31,8 +35,8 @@ export const updateKeyboards = async (keyboardObjArr) => {
 	await pool.query(`DELETE FROM ${process.env.MYSQL_DATABASE_TABLE}`);
 	await pool.query(`ALTER TABLE ${process.env.MYSQL_DATABASE_TABLE} AUTO_INCREMENT=1`);
 	for (let keyboardObj of keyboardObjArr) {
-		await pool.query(`INSERT INTO ${process.env.MYSQL_DATABASE_TABLE} (name, img_url, price, product_id, larger_img_url, star_rating, reviews) VALUES (?, ?, ?, ?, ?, ?, ?)`, 
-			[keyboardObj.name, keyboardObj.img, keyboardObj.price, keyboardObj.productID, keyboardObj.largerImg, keyboardObj.starRating, JSON.stringify(keyboardObj.reviewsData)]);
+		await pool.query(`INSERT INTO ${process.env.MYSQL_DATABASE_TABLE} (name, larger_img_url, price, img_url, star_rating, reviews) VALUES (?, ?, ?, ?, ?, ?)`, 
+			[keyboardObj.name, keyboardObj.largerImg, keyboardObj.price, keyboardObj.img, keyboardObj.starRating, JSON.stringify(keyboardObj.reviewsData)]);
 	}
 }
 

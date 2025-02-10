@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 5000;
 
 import {
 	getKeyboards,
+	getSomeKeyboards,
 	getKeyboard,
 } from "./database-querying.js";
 
@@ -30,6 +31,12 @@ app.get("/keyboards", async (req, res) => {
 	const keyboards = await getKeyboards();
 	console.log(keyboards);
 	res.status(200).json(keyboards);
+});
+
+app.get("/keyboards/:offset", async (req, res) => {
+	const offset = req.params.offset;
+	const someKeyboards = await getSomeKeyboards(offset);
+	res.status(200).json(someKeyboards);
 });
 
 // Retrieve a specific keyboard based on product id
