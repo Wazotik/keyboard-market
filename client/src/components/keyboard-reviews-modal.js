@@ -26,11 +26,13 @@ const KeyboardReviewModal = ({ toggleReviewsModal, largerImgUrl, reviews, starRa
 							{reviews.length ? reviews.map((review) => {
 								return (
 									<div className={styles.review}>
-										<div className={styles.starRating}>
-											<ReactStars count={5} size={24} value={review[2]} a11y={false} edit={false}/>
-										</div>
-										<div className={styles.date}>
-											{review[1]}
+										<div className={styles.reviewHeader}>
+											<div className={styles.starRating}>
+												<ReactStars count={5} size={24} value={review[2]} a11y={false} edit={false}/>
+											</div>
+											<div className={styles.date}>
+												{review[1].slice(0,11)}
+											</div>
 										</div>
 										<div className={styles.reviewText}>
 											{review[0]}

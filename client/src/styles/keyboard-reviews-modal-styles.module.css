@@ -87,8 +87,14 @@
 	margin-bottom: 1rem;
 }
 
-.date {
+.reviewHeader {
+	display: flex;
+	justify-content: space-between;
+	margin-right: 10px;
+}
 
+.date {
+	text-align: right;
 }
 
 .reviewText {

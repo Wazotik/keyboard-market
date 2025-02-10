@@ -17,7 +17,7 @@ const DataControlCenter = ({ keyboardData, setProductElemList }) => {
 		setMaxPrice("");
 		setSortFunction("");
 	}
-
+	
 	// selects sorting function depending on user selection
 	const handleSort = (keyboardData) => {
 		let sortedData = []
@@ -43,19 +43,19 @@ const DataControlCenter = ({ keyboardData, setProductElemList }) => {
 	// goes through all possible filtering inputs and filters data
 	const filterKeyboardData = () => {
 		let filteredData = keyboardData;
-		if (searchText) {
+		if (searchText !== "") {
 			filteredData = filteredData.filter((keyboard) => keyboard.name.toLowerCase().includes(searchText.toLowerCase()));
 		}
 
-		if (minPrice !== '') {
+		if (minPrice !== "") {
 			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) >= parseFloat(minPrice));
 		}
 
-		if (maxPrice !== '') {
+		if (maxPrice !== "") {
 			filteredData = filteredData.filter((keyboard) => parseFloat(keyboard.price) <= parseFloat(maxPrice));
 		}
 
-		if (sortFunction) {
+		if (sortFunction !== "") {
 			filteredData = handleSort(filteredData);
 		}
 		setProductElemList(
@@ -85,7 +85,7 @@ const DataControlCenter = ({ keyboardData, setProductElemList }) => {
 	useEffect(() => {
 		const debounceFilter = setTimeout(() => {
 			filterKeyboardData();
-		}, 400);
+		}, 100);
 
 		return () => clearTimeout(debounceFilter);
 	}, [searchText, sortFunction, minPrice, maxPrice]);
