@@ -26,21 +26,21 @@ app.get("/", (req, res) => {
 });
 
 // Retrieve all keyboards
-app.get("/keyboards", async (req, res) => {
+app.get("/api/keyboards", async (req, res) => {
 	console.log("incoming request for all keyboard info");
 	const keyboards = await getKeyboards();
 	console.log(keyboards);
 	res.status(200).json(keyboards);
 });
 
-app.get("/keyboards/:offset", async (req, res) => {
+app.get("/api/keyboards/:offset", async (req, res) => {
 	const offset = req.params.offset;
 	const someKeyboards = await getSomeKeyboards(offset);
 	res.status(200).json(someKeyboards);
 });
 
 // Retrieve a specific keyboard based on product id
-app.get("/keyboards/:id", async (req, res) => {
+app.get("/api/keyboards/:id", async (req, res) => {
     const keyboard = await getKeyboard(req.params.id);
     if (!keyboard) {
         res.status(404).json({ error: "Keyboard not found" });
