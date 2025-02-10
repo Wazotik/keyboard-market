@@ -16,8 +16,8 @@ const Keyboards = () => {
 	// Update keyboard elements with keyboard data from server
 	const updateProductInfo = async () => {
 		console.log("getting keyboard data");
-		const res = await axios.get("/api/keyboards");
-		// const res = await axios.get("/keyboards");
+		// const res = await axios.get("/api/keyboards");
+		const res = await axios.get("/keyboards");
 		const keyboardsData = res.data;
 		console.log(keyboardsData);
 		setProductData(keyboardsData);
