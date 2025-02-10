@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from "../styles/keyboard-reviews-modal-styles.module.css";
 import ReactStars from "react-rating-stars-component";
 import { LazyLoadImage } from "react-lazy-load-image-component";

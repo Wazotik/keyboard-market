@@ -1,4 +1,3 @@
-import styles from "./App.module.css";
 import Keyboards from "./pages/keyboards.js";
 import Navbar from "./components/navbar.js";
 import { Route, Routes } from "react-router-dom";
