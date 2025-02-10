@@ -16,7 +16,8 @@ const Keyboards = () => {
 	// Update keyboard elements with keyboard data from server
 	const updateProductInfo = async () => {
 		console.log("getting keyboard data");
-		const res = await axios.get("/api/keyboards");
+		const res = await axios.get("https://keyboard-market-app-server-b625f0480c13.herokuapp.com/keyboards");
+		console.log(res);
 		const keyboardsData = res.data;
 		console.log(keyboardsData);
 		setProductData(keyboardsData);
